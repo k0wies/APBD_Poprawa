@@ -62,13 +62,18 @@ public class VisitRepository : IVisitRepository
             {
                 price *= 0.9M;
             }
+
+            var id = _context
+                .Visits
+                .Max(v => v.IdVisit) + 1;
              
             var newVisit = new Visit
             {
+                IdVisit = id,
                 Date = DateTime.Now,
                 IdPatient = visit.IdPatient,
                 IdDoctor = visit.IdDoctor,
-                Price = doctor.PriceForVisit
+                Price = price
             };
         
             _context.Visits.Add(newVisit);
