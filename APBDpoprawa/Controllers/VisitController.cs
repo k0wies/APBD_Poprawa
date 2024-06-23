@@ -24,8 +24,7 @@ public class VisitController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            return BadRequest();
         }
 
         return Ok();

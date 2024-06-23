@@ -31,7 +31,7 @@ public class PatientController : ControllerBase
         }
         catch (Exception e)
         {
-            return StatusCode(500, $"Internal server error: {e.Message}");
+            return StatusCode(500, e.Message);
         }
     }
 
